@@ -1,0 +1,14 @@
+.user-view-item {
+  min-width: 180px;
+  margin-top: 5px;
+
+  &__label {
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 3px;
+  }
+
+  &__value {
+    color: #999;
+  }
+}

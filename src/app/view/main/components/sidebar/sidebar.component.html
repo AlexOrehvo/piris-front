@@ -1,0 +1,9 @@
+<div class="sidebar">
+  <div class="sidebar-list">
+    <div class="sidebar-list__item" *ngFor="let item of sidebarItems">
+      <app-sidebar-item
+        [sidebarItem]="item"
+      ></app-sidebar-item>
+    </div>
+  </div>
+</div>

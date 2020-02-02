@@ -1,0 +1,10 @@
+<div class="user-view-item">
+  <p class="user-view-item__label">
+    {{label}}
+  </p>
+  <p class="user-view-item__value">
+    <span *ngIf="type === 'string'">{{value}}</span>
+    <span *ngIf="type === 'date'">{{ value | date }}</span>
+    <span *ngIf="type === 'boolean'">{{value ? 'Yes' : 'No'}}</span>
+  </p>
+</div>

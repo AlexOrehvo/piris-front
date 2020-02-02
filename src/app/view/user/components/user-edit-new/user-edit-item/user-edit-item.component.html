@@ -1,0 +1,24 @@
+<div class="filed-edit">
+  <div class="field-edit__label">
+    {{label}}<span *ngIf="required"> *</span>
+  </div>
+  <div class="field-edit__input">
+    <div *ngIf="type === 'string'">
+      <input [id]="id" type="text" [value]="value" (change)="onChange(this)"/>
+    </div>
+    <div *ngIf="type === 'date'">
+      <input type="date" [value]="value | date:'yyyy-MM-dd'" (change)="onChange(this)" />
+    </div>
+    <div *ngIf="type === 'radio'">
+      <div *ngFor="let item of selections">
+        <input
+          type="radio"
+          [name]="name" [(ngModel)]="item.id" [checked]="item.id === value.id">
+        <label [for]="item.id">Mail</label>
+      </div>
+    </div>
+    <div *ngIf="type === 'select'">
+
+    </div>
+  </div>
+</div>

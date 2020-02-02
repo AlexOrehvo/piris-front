@@ -1,0 +1,41 @@
+<div class="data-container">
+  <div class="data-container__header">
+    Other data
+  </div>
+  <div class="data-container__body">
+    <table>
+      <tr>
+        <td>
+          <app-user-view-item
+            label="Marital status"
+            [value]="user.maritalStatus"
+            type="string">
+          </app-user-view-item>
+        </td>
+        <td>
+          <app-user-view-item
+            label="Option"
+            [value]="user.citizenship.name"
+            type="string">
+          </app-user-view-item>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <app-user-view-item
+            label="Pensioner"
+            [value]="user.pensioner"
+            type="boolean">
+          </app-user-view-item>
+        </td>
+        <td>
+          <app-user-view-item
+            label="Duty-bound"
+            [value]="user.dutyBound"
+            type="boolean">
+          </app-user-view-item>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

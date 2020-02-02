@@ -1,0 +1,17 @@
+<div class="user-info">
+  <div class="user-info-column">
+    <app-personal-info-container
+      [user]="user">
+    </app-personal-info-container>
+  </div>
+  <div class="user-info-column">
+    <app-passport-container
+      [passport]="user.passport">
+    </app-passport-container>
+  </div>
+  <div class="user-info-column">
+    <app-other-info-container
+      [user]="user">
+    </app-other-info-container>
+  </div>
+</div>

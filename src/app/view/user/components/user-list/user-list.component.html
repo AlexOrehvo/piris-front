@@ -1,0 +1,12 @@
+<div class="users">
+  <table>
+    <thead>
+      <th *ngFor="let param of displayedParam">{{param.label}}</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td *ngFor="let param of displayedParam">{{user[param.key]}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

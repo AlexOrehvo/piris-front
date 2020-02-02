@@ -1,0 +1,73 @@
+<div class="data-container">
+  <div class="data-container__header">
+    Personal data
+  </div>
+  <div class="data-container__body">
+    <table>
+      <tr>
+        <td>
+          <app-user-view-item
+            label="First name"
+            [value]="user.firstName"
+            type="string">
+          </app-user-view-item>
+        </td>
+        <td>
+          <app-user-view-item
+            label="Last name"
+            [value]="user.lastName"
+            type="string">
+          </app-user-view-item>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <app-user-view-item
+            label="Middle name"
+            [value]="user.middleName"
+            type="string">
+          </app-user-view-item>
+        </td>
+        <td>
+          <app-user-view-item
+            label="Gender"
+            [value]="user.gender"
+            type="string">
+          </app-user-view-item>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <app-user-view-item
+            label="Home phone number"
+            [value]="user.homePhoneNumber"
+            type="string">
+          </app-user-view-item>
+        </td>
+        <td>
+          <app-user-view-item
+            label="Home mobile number"
+            [value]="user.mobilePhoneNumber"
+            type="string">
+          </app-user-view-item>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <app-user-view-item
+            label="Date of Birth"
+            [value]="user.birthday"
+            type="date">
+          </app-user-view-item>
+        </td>
+        <td>
+          <app-user-view-item
+            label="Email"
+            [value]="user.email"
+            type="string">
+          </app-user-view-item>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

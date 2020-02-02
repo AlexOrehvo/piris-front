@@ -1,0 +1,57 @@
+<div class="data-container">
+  <div class="data-container__header">
+    Passport data
+  </div>
+  <div class="data-container__body">
+    <table>
+      <tr>
+        <td>
+          <app-user-view-item
+            label="Passport Series"
+            [value]="passport.passportSeries"
+            type="string">
+          </app-user-view-item>
+        </td>
+        <td>
+          <app-user-view-item
+            label="Passport №"
+            [value]="passport.passportNumber"
+            type="string">
+          </app-user-view-item>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <app-user-view-item
+            label="Identification №"
+            [value]="passport.identificationNumber"
+            type="string">
+          </app-user-view-item>
+        </td>
+        <td>
+          <app-user-view-item
+            label="Authority"
+            [value]="passport.authority"
+            type="string">
+          </app-user-view-item>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <app-user-view-item
+            label="Date of issue"
+            [value]="passport.dateOfIssue"
+            type="date">
+          </app-user-view-item>
+        </td>
+        <td>
+          <app-user-view-item
+            label="Place of birth"
+            [value]="passport.placeOfBirth"
+            type="string">
+          </app-user-view-item>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

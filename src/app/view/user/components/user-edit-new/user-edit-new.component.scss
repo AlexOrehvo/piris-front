@@ -1,0 +1,20 @@
+.field {
+  min-width: 150px;
+  margin: 0 5px;
+
+  &__label {
+    font-size: 12px;
+    font-weight: bold;
+  }
+}
+
+.form-control {
+  color: #999;
+  border: 1px solid #eee;
+  padding: 2px 5px;
+}
+
+.radio-group {
+  display: flex;
+  color: #999;
+}
