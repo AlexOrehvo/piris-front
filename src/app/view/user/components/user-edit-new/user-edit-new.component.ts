@@ -4,6 +4,7 @@ import {UserService} from '../../../../services/user.service';
 import {Option} from '../../../../domain/option';
 import {ListService} from '../../../../services/list.service';
 import {ValidationService} from '../../../../services/validation.service';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-user-edit-new',
@@ -34,13 +35,32 @@ export class UserEditNewComponent implements OnInit {
 
   private message: string;
 
+  private isEditMode = false;
+
   constructor(
     private userService: UserService,
     private listService: ListService,
-    private validationService: ValidationService
-  ) { }
+    private validationService: ValidationService,
+    private router: Router,
+    private activeRoute: ActivatedRoute
+  ) {
+    this.isEditMode = this.activeRoute.snapshot.params.mode === 'edit';
+    if (this.isEditMode) {
+      console.log(this.activeRoute.snapshot.params.uuid);
+      console.log(this.userService.getUserById(1));
+      this.userService.getUserById(this.activeRoute.snapshot.params.uuid)
+        .subscribe(data => {
+          if (data != null) {
+            Object.assign(this.user, data);
+
+            console.log(this.user);
+          }
+        });
+    }
+  }
 
   ngOnInit() {
+
   }
 
   public validate(): boolean {
@@ -67,6 +87,10 @@ export class UserEditNewComponent implements OnInit {
       this.userService.saveUser(this.user);
     }
     console.log(this.user);
+  }
+
+  public back() {
+    this.router.navigateByUrl('/main/users');
   }
 
   get genders(): Option[] {
@@ -103,6 +127,7 @@ export class UserEditNewComponent implements OnInit {
   }
 
   updateCity(id) {
+    console.log(id);
     this.user.city = this.listService.getCityById(Number(id));
   }
 

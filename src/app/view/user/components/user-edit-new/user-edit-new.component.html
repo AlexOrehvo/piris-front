@@ -1,4 +1,9 @@
 <div class="user-edit">
+  <div class="users-header">
+    <div class="users-header__title">
+      {{isEditMode? 'Edit user' : 'Create user'}}
+    </div>
+  </div>
   <div class="user-edit-container">
     <div class="user-edit-columns">
       <div class="user-edit-column">
@@ -94,7 +99,8 @@
                       Date of Birth *
                     </p>
                     <div class="field__input">
-                      <input class="form-control" type="date" [(ngModel)]="user.birthday">
+                      <input class="form-control" style="width: 100%"
+                             type="date" [(ngModel)]="user.birthday">
                     </div>
                     <p #birthdayValidation class="validation-message"></p>
                   </div>
@@ -118,7 +124,7 @@
                       City of actual residence *
                     </p>
                     <div class="field__input">
-                      <select class="form-control" name="city" (change)="updateCity($event.target.value)">
+                      <select class="form-control" name="city" (change)="updateCity($event.target.value)" [value]="user.city.id">
                         <option></option>
                         <option *ngFor="let item of cities" [value]="item.id">
                           {{item.name}}
@@ -242,7 +248,7 @@
                       Marital status *
                     </p>
                     <div class="field__input">
-                      <select class="form-control" name="maritalStatus" (change)="updateMaritalStatus($event.target.value)">
+                      <select class="form-control" name="maritalStatus" (change)="updateMaritalStatus($event.target.value)" [value]="user.maritalStatus.id">
                         <option></option>
                         <option *ngFor="let item of maritalStatuses" [value]="item.id">
                           {{item.name}}
@@ -258,7 +264,7 @@
                       Citizenship *
                     </p>
                     <div class="field__input">
-                      <select class="form-control" name="gender" (change)="updateCitizenship($event.target.value)">
+                      <select class="form-control" name="gender" (change)="updateCitizenship($event.target.value)" [value]="user.gender.id">
                         <option></option>
                         <option *ngFor="let item of citizenships" [value]="item.id">
                           {{item.name}}
@@ -276,7 +282,7 @@
                       Disability *
                     </p>
                     <div class="field__input">
-                      <select class="form-control" name="disability" (change)="updateDisability($event.target.value)">
+                      <select class="form-control" name="disability" (change)="updateDisability($event.target.value)" [value]="user.disability.id">
                         <option></option>
                         <option *ngFor="let item of disabilities" [value]="item.id">
                           {{item.name}}
@@ -328,7 +334,7 @@
       </div>
     </div>
     <div class="user-edit-buttons">
-      <button class="btn btn-primary">Back</button>
+      <button class="btn btn-primary" routerLink="/main/users">Back</button>
       <button class="btn btn-success mgl10" (click)="save()">Save</button>
     </div>
   </div>

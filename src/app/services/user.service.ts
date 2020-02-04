@@ -18,7 +18,7 @@ export class UserService {
     return this.userRepository.getUsers();
   }
 
-  public getSelectedUser(): User {
+  public getSelectedUser(): Observable<User> {
     return this.userRepository.getUserById(this.selectedUserId);
   }
 
@@ -28,6 +28,10 @@ export class UserService {
 
   public saveUser(user: User): void {
     this.userRepository.save(user);
+  }
+
+  public getUserById(id: number): Observable<User> {
+    return this.userRepository.getUserById(id);
   }
 }
 

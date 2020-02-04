@@ -26,8 +26,8 @@ export class UserRepository implements OnInit {
     return this.users;
   }
 
-  public getUserById(id: number): User {
-    return this.users.find(u => u.id === id);
+  public getUserById(id: number): Observable<User> {
+    return this.userResource.getUserById(id);
   }
 
   public save(user: User): void {

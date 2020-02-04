@@ -8,12 +8,12 @@ html, body {
   font-family: Arial;
 }
 
-h1, h2, h3, h4, h5, h6 ,p {
+h1, h2, h3, h4, h5, h6 ,p, input, select {
   margin: 0;
   padding: 0;
 }
 
-div {
+div, input, select {
   box-sizing: border-box;
 }
 
@@ -75,4 +75,18 @@ div {
 
 .mgl10 {
   margin-left: 10px;
+}
+
+.users-header {
+  width: 100%;
+  background: #fff;
+  display: flex;
+  padding: 10px 20px;
+  justify-content: space-between;
+  align-items: center;
+
+  &__title {
+    font-size: 24px;
+    font-weight: bold;
+  }
 }

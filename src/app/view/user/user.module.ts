@@ -12,13 +12,32 @@ import { OtherInfoContainerComponent } from './components/user-view/other-info-c
 import { UserEditNewComponent } from './components/user-edit-new/user-edit-new.component';
 import { UserEditItemComponent } from './components/user-edit-new/user-edit-item/user-edit-item.component';
 import {FormsModule} from '@angular/forms';
+import {UserService} from "../../services/user.service";
+import {UserRepository} from "../../repository/user.repository";
+import {UserResource} from "../../web/rest/user.resource";
 
 @NgModule({
-  declarations: [UserListComponent, UserLayoutComponent, UserViewComponent, DataContainerComponent, PassportContainerComponent, UserViewItemComponent, PersonalInfoContainerComponent, OtherInfoContainerComponent, UserEditNewComponent, UserEditItemComponent],
+  declarations: [
+    UserListComponent,
+    UserLayoutComponent,
+    UserViewComponent,
+    DataContainerComponent,
+    PassportContainerComponent,
+    UserViewItemComponent,
+    PersonalInfoContainerComponent,
+    OtherInfoContainerComponent,
+    UserEditNewComponent,
+    UserEditItemComponent
+  ],
   imports: [
     CommonModule,
     UserRoutingModule,
     FormsModule
+  ],
+  providers: [
+    UserService,
+    UserRepository,
+    UserResource
   ]
 })
 export class UserModule { }

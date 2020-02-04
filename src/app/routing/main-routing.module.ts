@@ -10,10 +10,6 @@ const routes: Routes = [
       {
         path: 'users',
         loadChildren: '../view/user/user.module#UserModule'
-      },
-      {
-        path: '**',
-        redirectTo: 'users'
       }
     ]
   },

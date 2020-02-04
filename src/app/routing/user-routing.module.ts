@@ -12,8 +12,25 @@ const routes: Routes = [
     component: UserLayoutComponent,
     children: [
       {
-        path: '**',
+        path: '',
         component: UserListComponent
+      },
+      {
+        path: 'view/:id',
+        component: UserViewComponent
+      },
+      {
+        path: 'new',
+        component: UserEditNewComponent
+      },
+      {
+        path: 'edit/:uuid',
+        component: UserEditNewComponent
+      },
+      {
+        path: '**',
+        redirectTo: '',
+        pathMatch: 'full'
       }
     ]
   }

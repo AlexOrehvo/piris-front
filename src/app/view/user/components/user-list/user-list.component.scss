@@ -1,38 +1,39 @@
-.users-header {
-  width: 100%;
-  background: #fff;
-  display: flex;
-  padding: 10px 20px;
-  justify-content: space-between;
-  align-items: center;
-
-  &__title {
-    font-size: 24px;
-    font-weight: bold;
-  }
-}
-
 .users-table {
   padding: 10px 20px;
   
   &__table {
     background: #fff;
     width: 100%;
-
+    border-collapse: collapse;
     tr {
       margin-bottom: 10px;
+
+      &:hover {
+        cursor: pointer;
+        background: #b8f9c3 !important;
+      }
     }
 
-    th {
+    th, td {
       text-align: left;
+      padding: 10px 0 10px 10px;
     }
 
     td {
-      padding: 10px 0 10px 10px;
+      color: #555;
     }
 
     tr:nth-child(odd) {
       background: #eee;
     }
+  }
+}
+
+.action {
+  margin-right: 10px;
+
+  &:hover {
+    cursor: pointer;
+    color: #000;
   }
 }
