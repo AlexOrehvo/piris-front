@@ -13,6 +13,10 @@ h1, h2, h3, h4, h5, h6 ,p {
   padding: 0;
 }
 
+div {
+  box-sizing: border-box;
+}
+
 .data-container {
   background: #fff;
   padding: 15px 10px;
@@ -25,13 +29,13 @@ h1, h2, h3, h4, h5, h6 ,p {
   }
 }
 
-.user-info {
-  display: flex;
-  width: 100%;
+.user-info-columns {
+  display: inline-block;
 }
 
 .user-info-column {
   margin-left: 20px;
+  display: inline-block;
 }
 
 .validation-message {
@@ -39,4 +43,36 @@ h1, h2, h3, h4, h5, h6 ,p {
   color: red;
   font-weight: bold;
   font-size: 12px;
+}
+
+.btn {
+  font-weight: bold;
+  padding: 5px 15px;
+  font-size: 14px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #aaa;
+}
+
+.btn-success {
+  background: #2ce1aa;
+
+  &:hover {
+    cursor: pointer;
+    background: #738b79;
+  }
+}
+
+.btn-primary {
+  background: #35d5fd;
+
+  &:hover {
+    cursor: pointer;
+    background: #1e8ba2;
+  }
+}
+
+.mgl10 {
+  margin-left: 10px;
 }

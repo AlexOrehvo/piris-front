@@ -1,329 +1,336 @@
-<div class="user-info">
-  <div class="user-info-column">
-    <div class="data-container">
-      <div class="data-container__header">
-        Personal data
-      </div>
-      <div class="data-container__body">
-        <table>
-          <tr>
-            <td>
-              <div class="field">
-                <p class="field__label">
-                  First name *
-                </p>
-                <div class="field__input">
-                  <input class="form-control" type="text" [(ngModel)]="user.firstName">
-                </div>
-                <p #firstNameValidation class="validation-message"></p>
-              </div>
-            </td>
-            <td>
-              <div class="field">
-                <p class="field__label">
-                  Last name *
-                </p>
-                <div class="field__input">
-                  <input class="form-control" type="text" [(ngModel)]="user.lastName">
-                </div>
-                <p #lastNameValidation class="validation-message"></p>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="field">
-                <p class="field__label">
-                  Middle name *
-                </p>
-                <div class="field__input">
-                  <input class="form-control" type="text" [(ngModel)]="user.middleName">
-                </div>
-                <p #middleNameValidation class="validation-message"></p>
-              </div>
-            </td>
-            <td>
-              <div class="field">
-                <p class="field__label">
-                  Gender *
-                </p>
-                <div class="field__input">
-                  <div class="radio-group">
-                    <div *ngFor="let item of genders">
-                      <input type="radio" name="gender"
-                             [value]="item.id" [checked]="item.id === user.gender.id"
-                              (change)="updateGender(item.id)">
-                      <span>{{item.name}}</span>
+<div class="user-edit">
+  <div class="user-edit-container">
+    <div class="user-edit-columns">
+      <div class="user-edit-column">
+        <div class="data-container">
+          <div class="data-container__header">
+            Personal data
+          </div>
+          <div class="data-container__body">
+            <table>
+              <tr>
+                <td>
+                  <div class="field">
+                    <p class="field__label">
+                      First name *
+                    </p>
+                    <div class="field__input">
+                      <input class="form-control" type="text" [(ngModel)]="user.firstName">
+                    </div>
+                    <p #firstNameValidation class="validation-message"></p>
+                  </div>
+                </td>
+                <td>
+                  <div class="field">
+                    <p class="field__label">
+                      Last name *
+                    </p>
+                    <div class="field__input">
+                      <input class="form-control" type="text" [(ngModel)]="user.lastName">
+                    </div>
+                    <p #lastNameValidation class="validation-message"></p>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="field">
+                    <p class="field__label">
+                      Middle name *
+                    </p>
+                    <div class="field__input">
+                      <input class="form-control" type="text" [(ngModel)]="user.middleName">
+                    </div>
+                    <p #middleNameValidation class="validation-message"></p>
+                  </div>
+                </td>
+                <td>
+                  <div class="field">
+                    <p class="field__label">
+                      Gender *
+                    </p>
+                    <div class="field__input">
+                      <div class="radio-group">
+                        <div *ngFor="let item of genders">
+                          <input type="radio" name="gender"
+                                 [value]="item.id" [checked]="item.id === user.gender.id"
+                                 (change)="updateGender(item.id)">
+                          <span>{{item.name}}</span>
+                        </div>
+                      </div>
+                    </div>
+                    <p #genderValidation class="validation-message"></p>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="field">
+                    <p class="field__label">
+                      Home phone number
+                    </p>
+                    <div class="field__input">
+                      <input class="form-control" type="tel" [(ngModel)]="user.homePhoneNumber">
+                    </div>
+                    <p #homePhoneNumberValidation class="validation-message"></p>
+                  </div>
+                </td>
+                <td>
+                  <div class="field">
+                    <p class="field__label">
+                      Mobile phone number
+                    </p>
+                    <div class="field__input">
+                      <input class="form-control" type="tel" [(ngModel)]="user.mobilePhoneNumber">
+                    </div>
+                    <p #mobilePhoneNumberValidation class="validation-message"></p>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="field">
+                    <p class="field__label">
+                      Date of Birth *
+                    </p>
+                    <div class="field__input">
+                      <input class="form-control" type="date" [(ngModel)]="user.birthday">
+                    </div>
+                    <p #birthdayValidation class="validation-message"></p>
+                  </div>
+                </td>
+                <td>
+                  <div class="field">
+                    <p class="field__label">
+                      Email
+                    </p>
+                    <div class="field__input">
+                      <input class="form-control" type="text" [(ngModel)]="user.email">
+                    </div>
+                    <p #emailValidation class="validation-message"></p>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="field">
+                    <p class="field__label">
+                      City of actual residence *
+                    </p>
+                    <div class="field__input">
+                      <select class="form-control" name="city" (change)="updateCity($event.target.value)">
+                        <option></option>
+                        <option *ngFor="let item of cities" [value]="item.id">
+                          {{item.name}}
+                        </option>
+                      </select>
+                      <p #cityValidation class="validation-message"></p>
                     </div>
                   </div>
-                </div>
-                <p #genderValidation class="validation-message"></p>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="field">
-                <p class="field__label">
-                  Home phone number
-                </p>
-                <div class="field__input">
-                  <input class="form-control" type="tel" [(ngModel)]="user.homePhoneNumber">
-                </div>
-                <p #homePhoneNumberValidation class="validation-message"></p>
-              </div>
-            </td>
-            <td>
-              <div class="field">
-                <p class="field__label">
-                  Mobile phone number
-                </p>
-                <div class="field__input">
-                  <input class="form-control" type="tel" [(ngModel)]="user.mobilePhoneNumber">
-                </div>
-                <p #mobilePhoneNumberValidation class="validation-message"></p>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="field">
-                <p class="field__label">
-                  Date of Birth *
-                </p>
-                <div class="field__input">
-                  <input class="form-control" type="date" [(ngModel)]="user.birthday">
-                </div>
-                <p #birthdayValidation class="validation-message"></p>
-              </div>
-            </td>
-            <td>
-              <div class="field">
-                <p class="field__label">
-                  Email
-                </p>
-                <div class="field__input">
-                  <input class="form-control" type="text" [(ngModel)]="user.email">
-                </div>
-                <p #emailValidation class="validation-message"></p>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="field">
-                <p class="field__label">
-                  City of actual residence *
-                </p>
-                <div class="field__input">
-                  <select class="form-control" name="city" (change)="updateCity($event.target.value)">
-                    <option></option>
-                    <option *ngFor="let item of cities" [value]="item.id">
-                      {{item.name}}
-                    </option>
-                  </select>
-                  <p #cityValidation class="validation-message"></p>
-                </div>
-              </div>
-            </td>
-            <td>
-              <div class="field">
-                <p class="field__label">
-                  Address of the actual residence *
-                </p>
-                <div class="field__input">
-                  <input class="form-control" type="text" [(ngModel)]="user.address">
-                </div>
-                <p #addressValidation class="validation-message"></p>
-              </div>
-            </td>
-          </tr>
-        </table>
+                </td>
+                <td>
+                  <div class="field">
+                    <p class="field__label">
+                      Address of the actual residence *
+                    </p>
+                    <div class="field__input">
+                      <input class="form-control" type="text" [(ngModel)]="user.address">
+                    </div>
+                    <p #addressValidation class="validation-message"></p>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-  <div class="user-info-column">
-    <div class="data-container">
-      <div class="data-container__header">
-        Passport data
-      </div>
-      <div class="data-container__body">
-        <table>
-          <tr>
-            <td>
-              <div class="field">
-                <p class="field__label">
-                  Passport Series *
-                </p>
-                <div class="field__input">
-                  <input class="form-control" type="text" [(ngModel)]="user.passport.passportSeries">
-                </div>
-                <p #passportSeriesValidation class="validation-message"></p>
-              </div>
-            </td>
-            <td>
-              <div class="field">
-                <p class="field__label">
-                  Passport № *
-                </p>
-                <div class="field__input">
-                  <input class="form-control" type="text" [(ngModel)]="user.passport.passportNumber">
-                  <p #passportNumberValidation class="validation-message"></p>
-                </div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="field">
-                <p class="field__label">
-                  Identification № *
-                </p>
-                <div class="field__input">
-                  <input class="form-control" type="text" [(ngModel)]="user.passport.identificationNumber">
-                </div>
-                <p #identificationNumberValidation class="validation-message"></p>
-              </div>
-            </td>
-            <td>
-              <div class="field">
-                <p class="field__label">
-                  Authority *
-                </p>
-                <div class="field__input">
-                  <input class="form-control" type="text" [(ngModel)]="user.passport.authority">
-                </div>
-                <p #authorityValidation class="validation-message"></p>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="field">
-                <p class="field__label">
-                  Date of issue *
-                </p>
-                <div class="field__input">
-                  <input class="form-control" type="date" [(ngModel)]="user.passport.dateOfIssue">
-                </div>
-                <p #dateOfIssueValidation class="validation-message"></p>
-              </div>
-            </td>
-            <td>
-              <div class="field">
-                <p class="field__label">
-                  Place of Birth *
-                </p>
-                <div class="field__input">
-                  <input class="form-control" type="text" [(ngModel)]="user.passport.placeOfBirth">
-                </div>
-                <p #placeOfBirthValidation class="validation-message"></p>
-              </div>
-            </td>
-          </tr>
-        </table>
-      </div>
-    </div>
+      <div class="user-edit-column">
+        <div class="data-container">
+          <div class="data-container__header">
+            Passport data
+          </div>
+          <div class="data-container__body">
+            <table>
+              <tr>
+                <td>
+                  <div class="field">
+                    <p class="field__label">
+                      Passport Series *
+                    </p>
+                    <div class="field__input">
+                      <input class="form-control" type="text" [(ngModel)]="user.passport.passportSeries">
+                    </div>
+                    <p #passportSeriesValidation class="validation-message"></p>
+                  </div>
+                </td>
+                <td>
+                  <div class="field">
+                    <p class="field__label">
+                      Passport № *
+                    </p>
+                    <div class="field__input">
+                      <input class="form-control" type="text" [(ngModel)]="user.passport.passportNumber">
+                      <p #passportNumberValidation class="validation-message"></p>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="field">
+                    <p class="field__label">
+                      Identification № *
+                    </p>
+                    <div class="field__input">
+                      <input class="form-control" type="text" [(ngModel)]="user.passport.identificationNumber">
+                    </div>
+                    <p #identificationNumberValidation class="validation-message"></p>
+                  </div>
+                </td>
+                <td>
+                  <div class="field">
+                    <p class="field__label">
+                      Authority *
+                    </p>
+                    <div class="field__input">
+                      <input class="form-control" type="text" [(ngModel)]="user.passport.authority">
+                    </div>
+                    <p #authorityValidation class="validation-message"></p>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="field">
+                    <p class="field__label">
+                      Date of issue *
+                    </p>
+                    <div class="field__input">
+                      <input class="form-control" type="date" [(ngModel)]="user.passport.dateOfIssue">
+                    </div>
+                    <p #dateOfIssueValidation class="validation-message"></p>
+                  </div>
+                </td>
+                <td>
+                  <div class="field">
+                    <p class="field__label">
+                      Place of Birth *
+                    </p>
+                    <div class="field__input">
+                      <input class="form-control" type="text" [(ngModel)]="user.passport.placeOfBirth">
+                    </div>
+                    <p #placeOfBirthValidation class="validation-message"></p>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
 
-  </div>
-  <div class="user-info-column">
-    <div class="data-container">
-      <div class="data-container__header">
-        Other data
       </div>
-      <div class="data-container__body">
-        <table>
-          <tr>
-            <td>
-              <div class="field">
-                <p class="field__label">
-                  Marital status *
-                </p>
-                <div class="field__input">
-                  <select class="form-control" name="maritalStatus" (change)="updateMaritalStatus($event.target.value)">
-                    <option></option>
-                    <option *ngFor="let item of maritalStatuses" [value]="item.id">
-                      {{item.name}}
-                    </option>
-                  </select>
-                  <p #maritalStatusValidation class="validation-message"></p>
-                </div>
-              </div>
-            </td>
-            <td>
-              <div class="field">
-                <p class="field__label">
-                  Citizenship *
-                </p>
-                <div class="field__input">
-                  <select class="form-control" name="gender" (change)="updateCitizenship($event.target.value)">
-                    <option></option>
-                    <option *ngFor="let item of citizenships" [value]="item.id">
-                      {{item.name}}
-                    </option>
-                  </select>
-                  <p #citizenshipValidation class="validation-message"></p>
-                </div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="field">
-                <p class="field__label">
-                  Disability *
-                </p>
-                <div class="field__input">
-                  <select class="form-control" name="disability" (change)="updateDisability($event.target.value)">
-                    <option></option>
-                    <option *ngFor="let item of disabilities" [value]="item.id">
-                      {{item.name}}
-                    </option>
-                  </select>
-                  <p #maritalStatusValidation class="validation-message"></p>
-                </div>
-              </div>
-            </td>
-            <td>
-              <div class="field">
-                <p class="field__label">
-                  Monthly income
-                </p>
-                <div class="field__input">
-                  <input class="form-control" type="text">
-                </div>
-                <p #monthlyIncomeValidation class="validation-message"></p>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="field">
-                <p class="field__label">
-                  Pensioner
-                </p>
-                <div class="field__input">
-                  <input class="form-control" type="checkbox" [checked]="user.pensioner" (change)="updatePensioner($event.target.checked)">
-                </div>
-                <p #pensionerValidation class="validation-message"></p>
-              </div>
-            </td>
-            <td>
-              <div class="field">
-                <p class="field__label">
-                  Duty-bound
-                </p>
-                <div class="field__input">
-                  <input class="form-control" type="checkbox" [checked]="user.dutyBound" (change)="updateDutyBound($event.target.checked)">
-                  <p #dutyBoundValidation class="validation-message"></p>
-                </div>
-              </div>
-            </td>
-          </tr>
-        </table>
+      <div class="user-edit-column">
+        <div class="data-container">
+          <div class="data-container__header">
+            Other data
+          </div>
+          <div class="data-container__body">
+            <table>
+              <tr>
+                <td>
+                  <div class="field">
+                    <p class="field__label">
+                      Marital status *
+                    </p>
+                    <div class="field__input">
+                      <select class="form-control" name="maritalStatus" (change)="updateMaritalStatus($event.target.value)">
+                        <option></option>
+                        <option *ngFor="let item of maritalStatuses" [value]="item.id">
+                          {{item.name}}
+                        </option>
+                      </select>
+                      <p #maritalStatusValidation class="validation-message"></p>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="field">
+                    <p class="field__label">
+                      Citizenship *
+                    </p>
+                    <div class="field__input">
+                      <select class="form-control" name="gender" (change)="updateCitizenship($event.target.value)">
+                        <option></option>
+                        <option *ngFor="let item of citizenships" [value]="item.id">
+                          {{item.name}}
+                        </option>
+                      </select>
+                      <p #citizenshipValidation class="validation-message"></p>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="field">
+                    <p class="field__label">
+                      Disability *
+                    </p>
+                    <div class="field__input">
+                      <select class="form-control" name="disability" (change)="updateDisability($event.target.value)">
+                        <option></option>
+                        <option *ngFor="let item of disabilities" [value]="item.id">
+                          {{item.name}}
+                        </option>
+                      </select>
+                      <p #maritalStatusValidation class="validation-message"></p>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <div class="field">
+                    <p class="field__label">
+                      Monthly income
+                    </p>
+                    <div class="field__input">
+                      <input class="form-control" type="text">
+                    </div>
+                    <p #monthlyIncomeValidation class="validation-message"></p>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="field">
+                    <p class="field__label">
+                      Pensioner
+                    </p>
+                    <div class="field__input">
+                      <input class="form-control" type="checkbox" [checked]="user.pensioner" (change)="updatePensioner($event.target.checked)">
+                    </div>
+                    <p #pensionerValidation class="validation-message"></p>
+                  </div>
+                </td>
+                <td>
+                  <div class="field">
+                    <p class="field__label">
+                      Duty-bound
+                    </p>
+                    <div class="field__input">
+                      <input class="form-control" type="checkbox" [checked]="user.dutyBound" (change)="updateDutyBound($event.target.checked)">
+                      <p #dutyBoundValidation class="validation-message"></p>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
       </div>
+    </div>
+    <div class="user-edit-buttons">
+      <button class="btn btn-primary">Back</button>
+      <button class="btn btn-success mgl10" (click)="save()">Save</button>
     </div>
   </div>
 
 </div>
-<button (click)="save()"></button>

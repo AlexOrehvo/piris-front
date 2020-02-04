@@ -29,4 +29,20 @@ export class UserRepository implements OnInit {
   public getUserById(id: number): User {
     return this.users.find(u => u.id === id);
   }
+
+  public save(user: User): void {
+    if (user.id == null || user.id === 0) {
+      this.userResource.save(user).subscribe(u => {
+        this.users.push(u);
+      });
+    } else {
+      this.update(user);
+    }
+  }
+
+  public update(user: User): void {
+    this.userResource.update(user).subscribe(updatedUser => {
+      this.users.splice(this.users.findIndex(u => u.id === user.id), 1, updatedUser);
+    });
+  }
 }

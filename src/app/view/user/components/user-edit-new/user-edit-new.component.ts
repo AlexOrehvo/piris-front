@@ -64,8 +64,7 @@ export class UserEditNewComponent implements OnInit {
 
   public save() {
     if (this.validate()) {
-
-      console.log('success');
+      this.userService.saveUser(this.user);
     }
     console.log(this.user);
   }

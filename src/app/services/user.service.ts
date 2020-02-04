@@ -24,6 +24,10 @@ export class UserService {
 
   public userIsSelected(): boolean {
     return !!this.selectedUserId;
-}
+  }
+
+  public saveUser(user: User): void {
+    this.userRepository.save(user);
+  }
 }
 

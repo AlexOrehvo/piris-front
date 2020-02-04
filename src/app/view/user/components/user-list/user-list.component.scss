@@ -1,0 +1,38 @@
+.users-header {
+  width: 100%;
+  background: #fff;
+  display: flex;
+  padding: 10px 20px;
+  justify-content: space-between;
+  align-items: center;
+
+  &__title {
+    font-size: 24px;
+    font-weight: bold;
+  }
+}
+
+.users-table {
+  padding: 10px 20px;
+  
+  &__table {
+    background: #fff;
+    width: 100%;
+
+    tr {
+      margin-bottom: 10px;
+    }
+
+    th {
+      text-align: left;
+    }
+
+    td {
+      padding: 10px 0 10px 10px;
+    }
+
+    tr:nth-child(odd) {
+      background: #eee;
+    }
+  }
+}

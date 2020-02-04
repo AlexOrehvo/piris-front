@@ -1,12 +1,22 @@
 <div class="users">
-  <table>
-    <thead>
+  <div class="users-header">
+    <div class="users-header__title">
+      User List
+    </div>
+    <div class="users-header__button">
+      <button class="btn btn-primary">New</button>
+    </div>
+  </div>
+  <div class="users-table">
+    <table class="users-table__table">
+      <thead>
       <th *ngFor="let param of displayedParam">{{param.label}}</th>
-    </thead>
-    <tbody>
+      </thead>
+      <tbody>
       <tr *ngFor="let user of users">
         <td *ngFor="let param of displayedParam">{{user[param.key]}}</td>
       </tr>
-    </tbody>
-  </table>
+      </tbody>
+    </table>
+  </div>
 </div>

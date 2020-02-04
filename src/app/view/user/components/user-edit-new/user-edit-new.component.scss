@@ -1,3 +1,24 @@
+.user-edit-columns {
+  display: inline-block;
+}
+
+.user-edit-column {
+  margin-left: 20px;
+  display: inline-block;
+}
+
+.user-edit-container {
+  display: inline-block;
+}
+
+.user-edit-buttons {
+  margin-top: 15px;
+  margin-left: 20px;
+  width: calc(100% - 20px);
+  padding: 15px 10px;
+  background: #fff;
+}
+
 .field {
   min-width: 150px;
   margin: 0 5px;

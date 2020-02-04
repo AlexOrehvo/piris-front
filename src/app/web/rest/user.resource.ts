@@ -10,9 +10,18 @@ export class UserResource {
 
   constructor(
     private http: HttpClient
-  ) { }
+  ) {
+  }
 
   public getAll(): Observable<User[]> {
     return this.http.get<User[]>('http://localhost:8081/users');
+  }
+
+  public save(user: User): Observable<User> {
+    return this.http.post<User>('http://localhost:8081/users', user);
+  }
+
+  public update(user: User): Observable<User> {
+    return this.http.put<User>('http://localhost:8081/users', user);
   }
 }
