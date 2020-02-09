@@ -1,8 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {User} from '../../../../domain/user';
-import {TableParam} from "../../../../model/table-param";
-import {UserService} from "../../../../services/user.service";
-import {Router} from "@angular/router";
+import {TableParam} from '../../../../model/table-param';
+import {UserService} from '../../../../services/user.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-user-list',
@@ -10,6 +10,8 @@ import {Router} from "@angular/router";
   styleUrls: ['./user-list.component.scss']
 })
 export class UserListComponent implements OnInit {
+
+  private users: Array<User>;
 
   public displayedParam: TableParam[] = [
     { key: 'firstName', label: 'First name'},
@@ -23,13 +25,22 @@ export class UserListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-  }
-
-  get users(): Array<User> {
-    return this.userService.getUsers();
+    this.userService.getUsers().subscribe(data => {
+      console.log("users");
+      this.users = data;
+    });
   }
 
   public edit(id: number) {
     this.router.navigateByUrl(`/main/users/edit/${id}`);
+  }
+
+  public view(id: number) {
+    this.router.navigateByUrl(`/main/users/view/${id}`);
+  }
+
+  public delete(id: number) {
+    console.log(id + ' - delete');
+    this.userService.deleteUser(id);
   }
 }

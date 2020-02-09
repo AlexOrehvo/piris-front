@@ -10,10 +10,15 @@ export class SidebarComponent implements OnInit {
 
   public sidebarItems: SidebarItem[] = [
     {
-      link: 'users',
+      link: '/main/users',
       label: 'Users',
       icon: 'fa-users'
     },
+    {
+      link: '/main/bank',
+      label: 'Bank',
+      icon: 'fa-id-card-o'
+    }
   ];
 
   constructor() { }

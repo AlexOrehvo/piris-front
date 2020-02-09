@@ -40,7 +40,6 @@ div, input, select {
 
 .validation-message {
   height: 15px;
-  color: red;
   font-weight: bold;
   font-size: 12px;
 }
@@ -89,4 +88,80 @@ div, input, select {
     font-size: 24px;
     font-weight: bold;
   }
+}
+
+.page {
+
+  &-header {
+    width: 100%;
+    background: #fff;
+    display: flex;
+    padding: 10px 20px;
+    justify-content: space-between;
+    align-items: center;
+
+    &__title {
+      font-size: 24px;
+      font-weight: bold;
+    }
+  }
+
+  &-body {
+    padding: 10px 20px;
+  }
+}
+
+.table {
+  background: #fff;
+  width: 100%;
+  border-collapse: collapse;
+  tr {
+    margin-bottom: 10px;
+
+    &:hover {
+      cursor: pointer;
+      background: #b8f9c3 !important;
+    }
+  }
+
+  th, td {
+    text-align: left;
+    padding: 10px 0 10px 10px;
+  }
+
+  td {
+    color: #555;
+  }
+
+  tr:nth-child(odd) {
+    background: #eee;
+  }
+}
+
+.field {
+  min-width: 150px;
+  margin: 0 5px;
+
+  &__label {
+    font-size: 12px;
+    font-weight: bold;
+  }
+}
+
+.form-control {
+  color: #999;
+  border: 1px solid #eee;
+  padding: 2px 5px;
+  width: 100%;
+}
+
+.page-buttons {
+  margin-top: 15px;
+  width: 100%;
+  padding: 15px 10px;
+  background: #fff;
+}
+
+.inline-block {
+  display: inline-block;
 }

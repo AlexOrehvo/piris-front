@@ -1,0 +1,37 @@
+<div class="page">
+  <div class="page-header">
+    <div class="page-header__title">
+      Customer accounts
+    </div>
+  </div>
+  <div class="page-body">
+    <table class="table">
+      <thead>
+        <th>Account number</th>
+        <th>Client name</th>
+        <th>Deposit type</th>
+        <th>Start date - End date</th>
+        <th>Account amount</th>
+        <th>Operation</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let account of bankAccounts">
+          <td>{{account.accountNumber}}</td>
+          <td>{{account.creator.firstName}} {{account.creator.lastName}}</td>
+          <td>{{account.deposit.type}} |
+            {{account.deposit.currency}} |
+            {{account.deposit.percent}} |
+          </td>
+          <td>{{account.startDate}} - {{account.endDate}}</td>
+          <td>{{account.accountAmount}}</td>
+          <td>
+            <span *ngIf="revokeIsAvailable(account)" (click)="revoke(account.id)">Revoke</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="page-buttons">
+      <button class="btn btn-primary" (click)="back()">Back</button>
+    </div>
+  </div>
+</div>

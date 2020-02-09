@@ -1,0 +1,106 @@
+<div class="page">
+  <div class="page-header">
+    <div class="page-header__title">
+      Conclusion of a deposit agreement
+    </div>
+  </div>
+  <div class="page-body inline-block">
+    <div class="data-container">
+      <div class="data-container__header">
+        Agreement form
+      </div>
+      <div class="data-container__body">
+        <table>
+          <tr>
+            <td>
+              <div class="field">
+                <p class="field__label">
+                  Client name
+                </p>
+                <div class="field__input">
+                  <input class="form-control" type="text" disabled
+                         [value]="bankAccount.creator.firstName + ' ' + ' ' + bankAccount.creator.lastName">
+                </div>
+                <p #firstNameValidation class="validation-message"></p>
+              </div>
+            </td>
+            <td>
+              <div class="field">
+                <p class="field__label">
+                  Identification №
+                </p>
+                <div class="field__input">
+                  <input class="form-control" type="text" disabled
+                         [value]="bankAccount.creator.passport.identificationNumber">
+                </div>
+                <p #passportValidation class="validation-message"></p>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="field">
+                <p class="field__label">
+                  Type of deposit *
+                </p>
+                <div class="field__input">
+                  <select class="form-control" name="type"
+                          [value]="bankAccount.deposit.id"
+                          (change)="updateDeposit($event.target.value)">
+                    <option></option>
+                    <option *ngFor="let item of deposits" [value]="item.id">
+                      {{item.currency + ', ' + item.type + ', ' + item.percent + '%'}}
+                    </option>
+                  </select>
+                  <p #typrValidation class="validation-message"></p>
+                </div>
+              </div>
+            </td>
+            <td>
+              <div class="field">
+                <p class="field__label">
+                  Deposit amount *
+                </p>
+                <div class="field__input">
+                  <input class="form-control" type="number" [(ngModel)]="bankAccount.accountAmount"
+                         min="1" step="any">
+                </div>
+                <p #accountAmountValidation class="validation-message"></p>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="field">
+                <p class="field__label">
+                  Start date *
+                </p>
+                <div class="field__input">
+                  <input class="form-control" style="width: 100%"
+                         type="date" [(ngModel)]="bankAccount.startDate">
+                </div>
+                <p #startDateValidation class="validation-message"></p>
+              </div>
+            </td>
+            <td>
+              <div class="field">
+                <p class="field__label">
+                  End date *
+                </p>
+                <div class="field__input">
+                  <input class="form-control" style="width: 100%"
+                         type="date" [(ngModel)]="bankAccount.endDate">
+                </div>
+                <p #endDateValidation class="validation-message"></p>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="page-buttons">
+      <button class="btn btn-primary" (click)="back()">Back</button>
+      <button class="btn btn-success mgl10" (click)="save()">Save</button>
+    </div>
+  </div>
+</div>

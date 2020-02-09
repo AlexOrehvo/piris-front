@@ -1,4 +1,5 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Location} from '@angular/common';
 import {User} from '../../../../domain/user';
 import {UserService} from '../../../../services/user.service';
 import {Option} from '../../../../domain/option';
@@ -42,18 +43,16 @@ export class UserEditNewComponent implements OnInit {
     private listService: ListService,
     private validationService: ValidationService,
     private router: Router,
+    private location: Location,
     private activeRoute: ActivatedRoute
   ) {
-    this.isEditMode = this.activeRoute.snapshot.params.mode === 'edit';
+    this.isEditMode = !!this.activeRoute.snapshot.params.id;
     if (this.isEditMode) {
-      console.log(this.activeRoute.snapshot.params.uuid);
-      console.log(this.userService.getUserById(1));
-      this.userService.getUserById(this.activeRoute.snapshot.params.uuid)
-        .subscribe(data => {
+      this.userService.getUserById(this.activeRoute.snapshot.params.id)
+        .subscribe((data) => {
           if (data != null) {
             Object.assign(this.user, data);
-
-            console.log(this.user);
+            this.userService.setSelectedUser(this.user);
           }
         });
     }
@@ -84,13 +83,15 @@ export class UserEditNewComponent implements OnInit {
 
   public save() {
     if (this.validate()) {
-      this.userService.saveUser(this.user);
+      this.userService.saveUser(this.user)
+        .subscribe(data => this.router.navigateByUrl('/main/users'),
+          error => alert(error.error.message));
     }
-    console.log(this.user);
   }
 
   public back() {
-    this.router.navigateByUrl('/main/users');
+    this.userService.resetSelectedUser();
+    this.location.back();
   }
 
   get genders(): Option[] {
@@ -127,12 +128,10 @@ export class UserEditNewComponent implements OnInit {
   }
 
   updateCity(id) {
-    console.log(id);
     this.user.city = this.listService.getCityById(Number(id));
   }
 
   updateMaritalStatus(id) {
-    console.log(id);
     this.user.maritalStatus = this.listService.getMaritalStatusById(Number(id));
   }
 

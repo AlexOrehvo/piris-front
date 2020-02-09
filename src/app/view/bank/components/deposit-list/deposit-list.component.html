@@ -1,0 +1,28 @@
+<div class="page">
+  <div class="page-header">
+    <div class="page-header__title">
+      Deposit programs
+    </div>
+  </div>
+  <div class="page-body">
+    <table class="table">
+      <thead>
+      <th>Description</th>
+      <th>Interest rate, %</th>
+      <th>Currency</th>
+      <th>Type</th>
+      </thead>
+      <tbody>
+      <tr *ngFor="let deposit of deposits">
+        <td>{{deposit.name}}</td>
+        <td>{{deposit.percent}}</td>
+        <td>{{deposit.currency}}</td>
+        <td>{{deposit.type}}</td>
+      </tr>
+      </tbody>
+    </table>
+    <div class="page-buttons">
+      <button class="btn btn-primary" (click)="back()">Back</button>
+    </div>
+  </div>
+</div>

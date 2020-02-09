@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {User} from "../../../../domain/user";
-import {UserService} from "../../../../services/user.service";
-import {ActivatedRoute, Router} from "@angular/router";
+import {Location} from '@angular/common';
+import {User} from '../../../../domain/user';
+import {UserService} from '../../../../services/user.service';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-user-view',
@@ -15,17 +16,28 @@ export class UserViewComponent implements OnInit {
   constructor(
     private userService: UserService,
     private activeRoute: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private location: Location
   ) { }
 
   ngOnInit() {
     this.userService.getUserById(this.activeRoute.snapshot.params.id)
       .subscribe(data => {
         this.user = data;
+        this.userService.setSelectedUser(this.user);
       });
   }
 
-  public edit(id: number) {
+  edit(id: number) {
     this.router.navigateByUrl(`/main/users/edit/${id}`);
+  }
+
+  back(): void {
+    this.userService.resetSelectedUser();
+    this.location.back();
+  }
+
+  deposit(id): void {
+    this.router.navigateByUrl(`/main/bank/create-deposit/${id}`);
   }
 }

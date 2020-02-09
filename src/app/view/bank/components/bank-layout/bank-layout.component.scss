@@ -1,0 +1,35 @@
+.bank {
+  width: 100%;
+  height: 100%;
+  
+  &__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #999;
+    width: calc(100% / 5);
+    height: 50%;
+    background: #fff;
+    font-size: 24px;
+    text-align: center;
+    font-weight: bold;
+
+    .icon {
+      font-size: 72px;
+    }
+
+    &:hover {
+      cursor: pointer;
+      background: #eee;
+    }
+  }
+}
+
+.bank-items {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}

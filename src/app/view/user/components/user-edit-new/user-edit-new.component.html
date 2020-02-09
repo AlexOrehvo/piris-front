@@ -298,7 +298,7 @@
                       Monthly income
                     </p>
                     <div class="field__input">
-                      <input class="form-control" type="text">
+                      <input class="form-control" type="number" min="1" step="any" [(ngModel)]="user.monthlyIncome">
                     </div>
                     <p #monthlyIncomeValidation class="validation-message"></p>
                   </div>
@@ -334,7 +334,7 @@
       </div>
     </div>
     <div class="user-edit-buttons">
-      <button class="btn btn-primary" routerLink="/main/users">Back</button>
+      <button class="btn btn-primary" (click)="back()">Back</button>
       <button class="btn btn-success mgl10" (click)="save()">Save</button>
     </div>
   </div>

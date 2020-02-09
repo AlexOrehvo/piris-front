@@ -7,10 +7,13 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { HttpClientModule } from '@angular/common/http';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
+import {MainModule} from "./view/main/main.module";
+import { PairsPipe } from './pipes/pairs.pipe';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PairsPipe
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,16 @@
+<div class="bank">
+  <div class="bank-items">
+    <div class="bank__item" *ngFor="let item of bankItems" [routerLink]="item.link">
+      <div class="icon" *ngIf="item.icon">
+        <i class="fa {{item.icon}}" aria-hidden="true"></i>
+      </div>
+      {{item.label}}
+    </div>
+    <div class="bank__item" (click)="closeDay()">
+      <div class="icon">
+        <i class="fa fa-ban" aria-hidden="true"></i>
+      </div>
+      Close day
+    </div>
+  </div>
+</div>

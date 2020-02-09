@@ -23,8 +23,9 @@
       </div>
     </div>
     <div class="user-view-buttons">
-      <button class="btn btn-primary" routerLink="/main/users">Back</button>
+      <button class="btn btn-primary" (click)="back()">Back</button>
       <button class="btn btn-success mgl10" (click)="edit(user.id)">Edit</button>
+      <button class="btn btn-success mgl10" (click)="deposit(user.id)">Deposit</button>
     </div>
   </div>
 </div>

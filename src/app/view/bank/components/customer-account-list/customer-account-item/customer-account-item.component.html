@@ -1,0 +1,21 @@
+<tr>
+  <td>{{account.active.accountNumber}}</td>
+  <td>{{account.active.creator.firstName}} {{account.active.creator.lastName}}</td>
+  <td>{{account.active.deposit.type}} |
+    {{account.active.deposit.currency}} |
+    {{account.active.deposit.percent}} |
+  </td>
+  <td>{{account.active.startDate}} - {{account.active.endDate}}</td>
+  <td>{{account.active.accountAmount}}</td>
+  <td>Withdraw</td> <!-- TODO add logic -->
+</tr>
+<tr >
+  <td>{{account.passive.accountNumber}}</td>
+  <td>{{account.passive.creator.firstName}} {{account.passive.creator.lastName}}</td>
+  <td>{{account.passive.deposit.type}} |
+    {{account.passive.deposit.currency}} |
+    {{account.passive.deposit.percent}} |
+  </td>
+  <td>{{account.passive.startDate}} - {{account.passive.endDate}}</td>
+  <td>{{account.passive.accountAmount}}</td>
+</tr>
